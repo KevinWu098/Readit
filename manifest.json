@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Readit - Private Subreddit => Wayback Machine",
+  "version": "1.0",
+  "description": "Checks if the current page is a Private Subreddit and redirects to the Wayback Machine.",
+  "permissions": ["tabs", "activeTab", "webNavigation", "https://www.reddit.com/*"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "Readit - Private Subreddit => Wayback Machine",
+    "default_icon": "deaddit.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.reddit.com/r/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
